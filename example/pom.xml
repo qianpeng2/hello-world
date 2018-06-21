@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tidy</groupId>
+    <artifactId>example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <!-- 这里默认的java 编译插件选择的是jdk 1.5的版本，这里的插件需要重新指定
+    当在项目设置中指定用jdk8之后，报错如下：
+     Information:java: javacTask: 源发行版 1.8 需要目标发行版 1.8
+     Information:java: Errors occurred while compiling module 'example'
+     Information:javac 1.8.0_171 was used to compile java sources
+     Information:Module "example" was fully rebuilt due to project configuration/dependencies changes
+     Information:2018/6/13 14:40 - Compilation completed with 1 error and 0 warnings in 2s 167ms
+     Error:java: Compilation failed: internal java compiler error
+     -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
